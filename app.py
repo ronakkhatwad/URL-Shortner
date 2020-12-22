@@ -2,9 +2,10 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 import string
 import random
+import os
 
 app = Flask(__name__) 
-app.config['SQLALCHEMTY_DATABASE_URI'] = 'sqlite:///urls.db'
+app.config['SQLALCHEMTY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMTY_TRACK_MODIFICATION'] =  False
 
 db=SQLAlchemy(app)
@@ -59,5 +60,5 @@ def redirection(short_url):
     else:
         return render_template('notfound.html')
 
-if __name__ == 'main':
+if __name__ == '__main__':
     app.run(port=5000,debug=True)
