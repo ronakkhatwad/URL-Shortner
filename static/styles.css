@@ -1,0 +1,31 @@
+.title{
+    margin-top:40px;
+	margin-bottom: 40px;
+	font-size: 50px;
+	color:aliceblue;
+	
+    
+}
+.title_container{
+  padding-left: auto;
+  padding-right: auto;
+	text-align: center;
+	
+}
+
+.form-container {
+	width: 50%;
+	margin: 30px 10px;
+}
+
+body {
+	 background: linear-gradient(90deg, #F24645, #4F00BC);
+}
+
+span {
+	font-family: 'Langar', cursive;
+}
+
+a {
+	color:#5BBAFB;
+}
