@@ -29,3 +29,8 @@ span {
 a {
 	color:#5BBAFB;
 }
+
+a:hover{
+	color:coral;
+	text-decoration: wavy;
+}

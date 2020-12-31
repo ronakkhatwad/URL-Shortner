@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Langar&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+    <link href="../static/styles.css" rel="stylesheet" type="text/css">
+    <title>SH4u</title>
+</head>
+<body>
+    <div class="container-fluid align-content-center" align="center">
+        <div class="container title_container">
+       <h1 class="title">SH4U - <span>Short URLs For You!</span></h1>
+             </div>
+       <hr style="background: aliceblue;">
+   <div class="form-container">	
+   <form action="#", method="post">
+    <div class="form-group col-auto">
+        <label for="url" style="color: aliceblue;">Enter an URL :&nbsp;</label>
+        <input class="form-control" type="url" name="longurl" id="url" placeholder="https://example.com" pattern="https://.*" size=40 required>
+        </div>
+   <div class="form-group col-auto">
+   <label for="url" style="color: aliceblue;">Enter a Short Code to Create Short URL:&nbsp;</label>
+   <input class="form-control" type="text" name="shortcode" placeholder="example : yt1 (Max size = 5)" size=40 required>
+   </div>
+       <input type="submit" value="Create" class="btn btn-outline-light btn-lg">
+   </form>
+   </div>
+   <a href="https://sh4-u.herokuapp.com/">BACK TO HOME</a>
+   </div>
+</body>
+</html>

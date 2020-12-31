@@ -13,7 +13,7 @@ db=SQLAlchemy(app)
 class Urls(db.Model):
     id_ = db.Column("id_",db.Integer,primary_key = True)
     long = db.Column("long",db.String())
-    short = db.Column("short",db.String(3))
+    short = db.Column("short",db.String(5))
 
     def __init__(self,long,short):
         self.long = long
@@ -47,6 +47,26 @@ def home():
             return redirect(url_for("display_short_url",url=short_url))
     else :
         return render_template("base.html")
+
+@app.route('/customurl',methods=['POST','GET'])
+def custom():
+    if request.method == "POST":
+        short_code = request.form["shortcode"]
+        long_url = request.form["longurl"]
+        found_url = Urls.query.filter_by(short=short_code).first()
+        if found_url:
+            if found_url.long == long_url:
+                return redirect(url_for("display_short_url",url=found_url.short))
+            else:
+                return render_template("urlexist.html") 
+        else:
+            new_url = Urls(long_url,short_code)
+            db.session.add(new_url)
+            db.session.commit()
+            return redirect(url_for("display_short_url",url=short_code))
+    else:
+        return render_template("customurl.html")
+    
 
 @app.route('/display/<url>')
 def display_short_url(url):
